@@ -1,9 +1,13 @@
 package subcommands
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/pheuberger/gogito/internal/paths"
+)
 
 func Init(path string) {
-	// TODO: determine absolute path
-	fmt.Printf("Initialized empty Git repository in %s\n", path)
+	absPath := paths.AbsFrom(path)
+	fmt.Printf("Initialized empty Git repository in %s\n", absPath)
 	panic("not implemented")
 }
