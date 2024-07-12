@@ -29,3 +29,7 @@ func AbsFrom(path string) string {
 	result, _ := filepath.Abs(path)
 	return result
 }
+
+func GitDir(pathToWorkingDir string) string {
+	return filepath.Join(pathToWorkingDir, ".git")
+}

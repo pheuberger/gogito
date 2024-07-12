@@ -17,13 +17,17 @@ description:
     Running gogito init in an existing repository is safe. It will not overwrite
     things that are already there.`,
 	Run: func(cmd *cobra.Command, args []string) {
+		var err error
 		switch len(args) {
 		case 0:
-			subcommands.Init(".")
+			err = subcommands.Init(".")
 		case 1:
-			subcommands.Init(args[0])
+			err = subcommands.Init(args[0])
 		default:
 			cmd.Usage()
+		}
+		if err != nil {
+			cmd.PrintErrln(err)
 		}
 	},
 }
